@@ -1,19 +1,21 @@
-SceneList scenes;
+DataMap g_data;
+SceneList g_scenes;
 
 void setup() {
-    scenes = new SceneList(new Example());
+    g_data = new DataMap();
+    g_scenes = new SceneList(new Example());
     size(640, 480);
 }
 
 void draw() {
-    scenes.Update();
-    scenes.Draw();
+    g_scenes.Update();
+    g_scenes.Draw();
 }
 
 void keyPressed() {
-    scenes.KeyPressed();
+    g_scenes.KeyPressed();
 }
 
 void keyReleased() {
-    scenes.KeyReleased();
+    g_scenes.KeyReleased();
 }
