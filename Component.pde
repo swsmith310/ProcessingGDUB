@@ -26,7 +26,8 @@ class Render implements Component {
         texture = loadImage("Pics/"+file+".png");
     }
     void Draw(Entity e) {
-        image(texture, e.transform.x, e.transform.y);
+        Transform transform = (Transform)e.GetComponent("Transform");
+        image(texture, transform.x, transform.y);
     }
     void Update(Entity e) {}
     void KeyPressed(Entity e) {}
@@ -41,6 +42,7 @@ class Movement implements Component {
     }
     void Draw(Entity e) {}
     void Update(Entity e) {
+        Transform transform = (Transform)e.GetComponent("Transform");
         Input input;
         if (e.HasComponent("Input")) {
             input = (Input)e.GetComponent("Input");
@@ -52,8 +54,8 @@ class Movement implements Component {
             else if (input.ltKey) xv = -1;
             else xv = 0;
         }
-        e.transform.x += xv;
-        e.transform.y += yv;
+        transform.x += xv;
+        transform.y += yv;
     }
     void KeyPressed(Entity e) {}
     void KeyReleased(Entity e) {}

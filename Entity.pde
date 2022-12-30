@@ -2,14 +2,12 @@
 // Developed by Spencer W. Smith
 // Last updated 29 December 2022
 class Entity {
-    // Every entity has a Transform component by default
-    Transform transform;
-    // All other components are added to this map
     HashMap<String,Component> components;
 
     Entity(int x, int y) {
-        transform = new Transform(x, y);
         components = new HashMap<String,Component>();
+        // Every entity has a transform component by default
+        components.put("Transform", new Transform(x, y));
     }
 
     boolean HasComponent(String key) {

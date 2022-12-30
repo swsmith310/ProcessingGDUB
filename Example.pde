@@ -6,6 +6,9 @@ class Example implements Scene {
         entities.get(0).Attach("Render", new Render("player_right"));
         entities.get(0).Attach("Input", new Input());
         entities.get(0).Attach("Movement", new Movement(1, 1));
+        entities.add(new Entity(400, 400));
+        entities.get(1).Attach("Render", new Render("player_right"));
+        entities.get(1).Attach("Movement", new Movement(-1, -1));
     }
 
     void Draw() {
